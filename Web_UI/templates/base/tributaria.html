@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <main id="main">
+
+    <section id="team" class="team">
+      <div class="container mt-5">
+
+      <h3 class="text-center">Área Tributaria</h3><br>
+      <p class="text-center">Ejercemos nuestro trabajo con dedicación a fin de encontrar soluciones eficientes y, asimismo, implementamos nuestras ideas con el objetivo de materializar dichas soluciones.</p>
+
+        <div class="row">
+          <div class="card-deck mt-4">
+            <div class="card">
+              <img src="{% static 'img/slide/construccion.jpg' %}" class="card-img-top px-3 mt-3" alt="...">
+              <div class="card-body">
+                <p class="card-text">
+                <h4>Asesoría y Consultoría Tributaria</h4>
+                <p>Asesoramos a nuestros clientes en el área tributaria de forma constante, con el objetivo de mantener un comportamiento impositivo ajustado a derecho a la vez que aprovechamos los beneficios y franquicias tributarias que pudieren convenir a al desarrollo de su compañía o negocio.</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="{% static 'img/slide/construccion.jpg' %}" class="card-img-top px-3 mt-3" alt="...">
+              <div class="card-body">
+                <p class="card-text">
+                <h4>Defensa Tributaria</h4>
+                <p>Defendemos tus intereses y los de tu empresa ante eventuales citaciones, liquidaciones y giros que la entidad administrativa pudiese emitir. Asimismo, defendemos al contribuyente ante cualquier otro tipo de observación tributaria respecto de la contabilidad y comportamiento tributario.</p>
+                <ul>
+                    <li>Actualización tributaria permanente.</li>
+                    <li>Solicitud de devolución de impuestos.</li>
+                    <li>Solicitudes y peticiones administrativas.</li>
+                    <li>Defensa tributaria ante el Servicio de Impuestos Internos, Tesorería General de la República, Tribunales Tributarios y Aduaneros y Tribunales Superiores de Justicia.</li>
+                </ul>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+{% endblock %}
+
+</body>
+
+</html>

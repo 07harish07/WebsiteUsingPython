@@ -1,0 +1,56 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <main id="main">
+
+    <section id="team" class="team">
+      <div class="container mt-5">
+
+      <h3 class="text-center">Notas de Actualidad</h3><br>
+
+        <div class="row">
+          <div class="card-deck mt-4">
+            <div class="card">
+              <img src="{% static 'img/slide/edificios.jpg' %}" class="card-img-top px-3 mt-3" alt="...">
+              <div class="card-body">
+                <p class="card-text">
+                <h4>Primera nota editada con Ignacio</h4><br>
+                <span>subtitulo</span><br>
+                <span>descripcion</span><br>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="{% static 'img/slide/living.png' %}" class="card-img-top px-3 mt-3" alt="...">
+              <div class="card-body">
+                <p class="card-text">
+                <h4>Primera nota editada con Ignacio</h4><br>
+                <span>subtitulo</span><br>
+                <span>descripcion</span><br>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="{% static 'img/slide/torresdelpaine.jpg' %}" class="card-img-top px-3 mt-3" alt="...">
+              <div class="card-body">
+                <p class="card-text">
+                <h4>Primera nota editada con Ignacio</h4><br>
+                <span>subtitulo</span><br>
+                <span>descripcion</span><br>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+{% endblock %}
+
+</body>
+
+</html>

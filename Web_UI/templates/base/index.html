@@ -1,0 +1,196 @@
+{% extends 'base/base.html' %} {% load static %} {% block content %} {% block style %}
+<style>
+    #cinzelFont {
+        font-family: "Cinzel Decorative", serif;
+    }
+</style>
+{% endblock %}
+<section id="hero">
+    <div class="hero-container">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+            <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+            <div class="carousel-inner" role="listbox">
+
+                <div class="carousel-item active" style="background: url('static/img/slide/construccion.jpg')">
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2 class="animated fadeInDown">Asesores Legales, Contables y Tributarios.</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item" style="background: url('static/img/slide/agro.jpg')">
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2 class="animated fadeInDown">Crecemos contigo</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item" style="background: url('static/img/slide/barco.jpg')">
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2 class="animated fadeInDown">Protegemos tus intereses</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item" style="background: url('static/img/slide/mar.jpg')">
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2 class="animated fadeInDown">Te ayudamos a alcanzar nuevos horizontes de éxito</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon icofont-rounded-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon icofont-rounded-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<div class="card shadow" style="margin-top: -60px!important;border: 0!important; border-radius: 0!important; margin-bottom: 80px!important;">
+    <div class="card-body">
+        <blockquote class="blockquote mb-0 text-center">
+            <h3 id="cinzelFont">Leiva & Cía</h3>
+            <p class="text-center">Ofrece una amplia gama de servicios profesionales en el área Legal, Contable y Tributaria.</p>
+        </blockquote>
+    </div>
+</div>
+
+<main id="main">
+
+    <section id="about" class="about">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Quiénes somos</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 pt-4 pt-lg-0 content">
+                    <p class="font-italic text-justify">
+                        Somos un equipo profesional especializado con más de 20 años de experiencia conjunta, dedicados a atender y solucionar las consultas de nuestros clientes con un alto estándar de calidad y efectividad..
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Servicios</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 pt-4 pt-lg-0 content">
+                    <p class="font-italic text-justify">
+                        Leiva & Cía ofrece una amplia gama de servicios profesionales en el área Legal, Contable y Tributaria. Contamos con los conocimientos y experiencia necesaria para atender las necesidades de todo tipo de clientes: personas naturales, family offices y empresas.
+                    </p>
+                    <p class="font-italic text-justify">
+                        Defendemos los intereses de personas naturales en asuntos de derecho civil y de familia y, asimismo, somos capaces apoyar a un nuevo inversionista, un pequeño negocio local o una gran empresa nacional.
+                    </p>
+                    <p class="font-italic text-justify">
+                        Trabajamos en contacto con nuestros clientes, centrándonos en sus necesidades a la vez que generamos nuevas ideas, diseñamos estrategias efectivas e implementamos soluciones escalables de alta calidad.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="text-center text-sm-center mt-n4 mb-5"><button data-toggle="modal" data-target="#form" type="button" class="btn btn-sm w-25 text-light" style="background: #00205B;">Contáctanos para mas información</button></div>
+
+    <section id="featured" class="featured">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="icon-box">
+                        <h3 class="text-center">Área Legal</h3>
+                        <i class="icofont-computer text-center"></i>
+                        <p class="text-justify">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="icon-box">
+                        <h3 class="text-center">Área Contable</h3>
+                        <i class="icofont-image text-center"></i>
+                        <p class="text-justify">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="icon-box">
+                        <h3 class="text-center">Área tributaria</h3>
+                        <i class="icofont-tasks-alt text-center"></i>
+                        <p class="text-justify">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+
+            <div class="section-title" data-aos="fade-up">
+                <h2>Notas de Actualidad</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch py-2">
+                    <div class="icon-box text-left">
+                        <a href="">
+                            <div class="icon"><i class="icofont-computer text-center"></i></div>
+                        </a>
+                        <h4><a href="">Primera nota editada con Ignacio</a></h4>
+                        <span>subtitulo</span><br>
+                        <span>descripcion</span><br>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch py-2">
+                    <div class="icon-box text-left">
+                        <a href="">
+                            <div class="icon"><i class="icofont-computer text-center"></i></div>
+                        </a>
+                        <h4><a href="">Segunda nota nueva. Segunda nota nueva</a></h4>
+                        <span>subtitulo</span><br>
+                        <span>descripcion</span><br>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch py-2">
+                    <div class="icon-box text-left">
+                        <a href="">
+                            <div class="icon"><i class="icofont-computer text-center"></i></div>
+                        </a>
+                        <h4><a href="">Tercera nota. Tercera nota. Tercera nota</a></h4>
+                        <span>subtitulo</span><br>
+                        <span>descripcion</span><br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}

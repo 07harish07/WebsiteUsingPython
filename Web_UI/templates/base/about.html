@@ -1,0 +1,76 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <h3>Quiénes somos</h3>
+        <p class="text-justify">Somos un equipo profesional especializado con más de 20 años de experiencia conjunta, dedicados a atender y solucionar las consultas de nuestros clientes con un alto estándar de calidad y efectividad.</p>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-2 d-flex text-center my-3 mx-3 ml-3">
+                <img src="{% static 'img/slide/construccion.jpg' %}" class="card-img" alt="...">
+              </div>
+              <div class="col-md-9">
+                <div class="card-body">
+                  <h5 class="card-title">Pilares</h5>
+                  <p class="card-text text-justify">Orientamos nuestro quehacer diario a prevenir contingencias y solucionar conflictos de relevancia jurídica de nuestros clientes sobre la base de pilares de integridad, calidad y eficiencia.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-2 d-flex text-center my-3 mx-3 ml-3">
+                <img src="{% static 'img/slide/construccion.jpg' %}" class="card-img" alt="...">
+              </div>
+              <div class="col-md-9">
+                <div class="card-body">
+                  <h5 class="card-title">Pilares</h5>
+                  <p class="card-text text-justify">Orientamos nuestro quehacer diario a prevenir contingencias y solucionar conflictos de relevancia jurídica de nuestros clientes sobre la base de pilares de integridad, calidad y eficiencia.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5">
+      </div>
+    </section>
+  </main>
+
+  <style type="text/css">
+    #footer {
+    background: #00205B;
+    padding: 0 0 30px 0;
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    width:100%;
+    bottom:0;
+  }
+  </style>
+
+{% endblock %}
+
+</body>
+
+</html>

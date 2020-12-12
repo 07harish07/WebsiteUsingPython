@@ -1,0 +1,173 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/country-code/css/intlTelInput.css' %}" rel="stylesheet">
+
+</head>
+<style>
+    body {
+        font-family: Georgia, serif;
+    }
+</style>
+{% block style %} {% endblock %}
+
+<body>
+    <header id="header">
+        <div class="container-fluid d-flex">
+            <div class="logo mr-auto">
+                <h1 class="text-light">
+                    <a href="index.html"><img src="{% static 'img/slide/logo.png' %}" /></a>
+                </h1>
+            </div>
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                    <li><a href="{% url 'samir:home' %}">Inicio</a></li>
+                    <li><a href="{% url 'samir:about' %}">Quienes somos</a></li>
+                    <li class="drop-down"><a href="#">Áreas de práctica</a>
+                        <ul>
+                            <li><a href="{% url 'samir:legal' %}">Área Legal</a></li>
+                            <li><a href="{% url 'samir:contable' %}">Área Contable</a></li>
+                            <li><a href="{% url 'samir:tributaria' %}">Área Tributaria</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'samir:news' %}">Notas de actualidad</a></li>
+                    <li><a href="{% url 'samir:startup' %}">Emprendimientos Startup</a></li>
+                    <li><a data-toggle="modal" data-target="#form" style="cursor: pointer;">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    {% block content %} {% endblock %}
+
+    <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="card-header modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel" style="margin: auto;">Solicitud de Contacto</h5>
+                </div>
+                <form id="form1" action="{% url 'samir:contact' %}" method="post" onsubmit="return submitContactForm();">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="fullname" name="fullname" aria-describedby="emailHelp" required placeholder="Ingrese su nombre completo">
+                        </div>
+                        <div class="form-group">                                           
+                            <input type="tel" name="number" class="form-control" id="number" required placeholder="Ingrese su número" maxlength="9" style="width:175%;padding-left:94px;" />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name="email" required placeholder="Ingrese su correo">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" name="message" required placeholder="Ingrese su mensaje" style="height: 120px;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6Ld2oOgZAAAAAJ0nx2wZlzJeg7crDh-8ixBFaB6E"  data-callback="verifyCaptcha">
+                            </div>
+                            <div id="g-recaptcha-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer modal-footer border-top-0 d-flex justify-content-center">
+                        <button type="submit" id='submitBtn' class="btn btn-success">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer" style="position:fixed">
+
+        <div class="container">
+            <div class="copyright">
+                Asesores Legales, Contables y Tributarios.
+            </div>
+            <div class="credits">
+                Santiago de Chile
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <script>
+        function submitContactForm(){
+            var response = grecaptcha.getResponse();
+            if(response.length == 0) {
+                   document.getElementById('g-recaptcha-error').innerHTML = `<span style="color:red;"> This field is required. </span>`;
+                return false;
+            }
+            $('#number').val(document.getElementsByClassName('iti__selected-flag')[0].title.split(":")[1].trim() + $('#number').val())
+            return true;
+        }
+
+        function verifyCaptcha() {
+            document.getElementById('g-recaptcha-error ').innerHTML = '';
+        }
+
+
+        function recaptchaCallback() {
+            $('#submitBtn').removeAttr('disabled');
+        };
+
+        $("#form1").submit(function(e) {
+            e.preventDefault()
+            const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+            var formData = {
+                fullname: $('#fullname').val(),
+                number: $('#number').val(),
+                email: $('#email').val(),
+                message: $('#message').val(),
+                captcha_token: $('#g-recaptcha-response').val()
+            }
+           
+            $.ajax({
+                url: "{% url 'samir:contact' %}",
+                type: "POST",
+                headers: {
+                    'X-CSRFToken': csrftoken
+                },
+                data: formData,
+                success: () => {
+                    modalDlg.classList.remove('is-active');
+                }
+            });
+
+            (this).reset();
+        });
+    </script>
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+    
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'vendor/country-code/js/intlTelInput.js' %}"></script> 
+    <script src="{% static 'vendor/country-code/js/intlTelInput-jquery.js' %}"></script> 
+    <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+    <script src="{% static 'vendor/jquery-sticky/jquery.sticky.js' %}"></script>
+    <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>    
+    <script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'vendor/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>     
+    <script>
+    $("#number").intlTelInput({initialCountry: "cl", separateDialCode: true });
+    </script>
+
+</body>
+
+</html>
